@@ -1,0 +1,10 @@
+// Last updated: 8/5/2025, 11:19:15 PM
+function canAttendMeetings(intervals: number[][]): boolean {
+    intervals.sort((a,b) => a[0] - b[0])
+    for (let i=0; i < intervals.length - 1;i++){
+        if(intervals[i][1] > intervals[i + 1][0]){
+            return false
+        } 
+    }
+    return true
+};
