@@ -1,19 +1,17 @@
-// Last updated: 8/24/2025, 7:33:37 PM
+// Last updated: 8/24/2025, 8:46:07 PM
 function groupAnagrams(strs: string[]): string[][] {
-    const map = new Map()
+    const map = new Map(); // Create an empty map to store grouped anagrams
 
-    for (let i = 0; i < strs.length; i++) {
-        const sortedStr = strs[i].split('').sort().join('')
-
-        if (!map.has(sortedStr)) {
-            map.set(sortedStr, [strs[i]])
-        }
-        else {
-            const prevArr = map.get(sortedStr)
-            prevArr.push(strs[i])
-            map.set(sortedStr, prevArr)
+    for (let i = 0; i < strs.length; i++) {     // Loop through each word in the input list
+        let sortedStr = strs[i].split('').sort().join(''); // Sort the letters of the current word
+        if (!map.has(sortedStr)) {        // If this sorted combination hasn't been seen before
+            map.set(sortedStr, [strs[i]]); // Create a new group (array) with this word as the first entry
+        } else {
+            map.get(sortedStr).push(strs[i]); // If group exists, add this word to that group
         }
     }
 
-    return Array.from(map.values())
+    // At the end, map.values() will be groups of anagrams as arrays
+    return Array.from(map.values());
+
 };
