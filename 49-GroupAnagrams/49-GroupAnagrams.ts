@@ -1,18 +1,19 @@
-// Last updated: 8/5/2025, 11:19:25 PM
+// Last updated: 8/24/2025, 7:33:37 PM
 function groupAnagrams(strs: string[]): string[][] {
-    const lookup: { [key: string]: string[] } = {};
+    const map = new Map()
 
-    for(let i = 0; i < strs.length; i++) {
-        const freq: number[] = new Array(26).fill(0);
-        for(let j = 0; j < strs[i].length; j++) {
-            freq[strs[i][j].charCodeAt(0) - 97] += 1;
+    for (let i = 0; i < strs.length; i++) {
+        const sortedStr = strs[i].split('').sort().join('')
+
+        if (!map.has(sortedStr)) {
+            map.set(sortedStr, [strs[i]])
         }
-        lookup[freq.toString()] = (lookup[freq.toString()] ?? []).concat(strs[i]);
+        else {
+            const prevArr = map.get(sortedStr)
+            prevArr.push(strs[i])
+            map.set(sortedStr, prevArr)
+        }
     }
 
-    const output:string[][] = []
-    for(let key in lookup) {
-        output.push(lookup[key]);
-    }
-    return output;
+    return Array.from(map.values())
 };
