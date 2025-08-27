@@ -1,17 +1,19 @@
-// Last updated: 8/27/2025, 9:43:45 PM
+// Last updated: 8/27/2025, 9:49:55 PM
 function twoSumLessThanK(nums: number[], k: number): number {
-    let max = -1;
-    let l = 0;
-    let r = nums.length - 1;
-    
-    nums.sort((a, b) => a - b);
+    let i = 0;
+    let j = 0;
+    let maxSum = -1;
+    while(i < nums.length-1) {
+        j = i+1;
 
-    while (l < r) {
-        const sum = nums[l] + nums[r];
-
-        max < sum && sum < k && (max = sum);
-        sum >= k ? r -= 1 : l += 1;
+        while(j< nums.length) {
+            if((nums[i] + nums[j]) < k) {
+                maxSum = Math.max((nums[i] + nums[j]), maxSum)
+            }
+            j++;
+        }
+        i++;
     }
 
-    return max;
+    return maxSum;
 };
