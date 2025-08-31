@@ -1,13 +1,4 @@
-// Last updated: 8/5/2025, 11:19:16 PM
+// Last updated: 8/31/2025, 12:47:25 PM
 function isAnagram(s: string, t: string): boolean {
-if (s.length !== t.length) {
-    return false;
-}
-let counts = new Array(26).fill(0);
-for(let i = 0; i < s.length; ++i) {
-    counts[s.charCodeAt(i) - 'a'.charCodeAt(0)]++;
-    counts[t.charCodeAt(i) - 'a'.charCodeAt(0)]--;
-}
-
-return counts.every(c => c === 0);
+   return s.split("").sort().join() === t.split("").sort().join();
 };
