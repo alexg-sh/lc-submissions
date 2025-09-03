@@ -1,14 +1,15 @@
-// Last updated: 8/5/2025, 11:19:12 PM
+// Last updated: 9/3/2025, 11:18:54 PM
 /**
  Do not return anything, modify nums in-place instead.
  */
 function moveZeroes(nums: number[]): void {
-    let nonzero = 0; // Pointer for non-zero elements
-
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !== 0) {
-            [nums[i], nums[nonzero]] = [nums[nonzero], nums[i]];
-            nonzero++;
+    let insertPos = 0;
+    for (let num of nums) {
+        if (num !== 0) {
+            nums[insertPos++] = num;
         }
+    }
+    while (insertPos < nums.length) {
+        nums[insertPos++] = 0;
     }
 }
