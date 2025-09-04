@@ -1,24 +1,12 @@
-// Last updated: 8/26/2025, 10:31:27 PM
-// TypeScript
-
-function twoSum(nums: number[], target: number): number[] {
-    // Hash table to store number->index mapping
-    const ht = new Map<number, number>();
-    
-    // Iterate through the array
+// Last updated: 9/4/2025, 10:22:40 PM
+var twoSum = function(nums, target) {
+    const seen = new Map();
     for (let i = 0; i < nums.length; i++) {
-        const num = nums[i];
-        
-        // Check if complement exists in hash table
-        if (ht.has(target - num)) {
-            // If found, return indices of both numbers
-            return [ht.get(target - num)!, i];
+        const need = target - nums[i];
+        if (seen.has(need)) {
+            return [seen.get(need), i];
         }
-        
-        // Store current number and its index in hash table
-        ht.set(num, i);
+        seen.set(nums[i], i);
     }
-    
-    // Return empty array if no solution found
     return [];
-}
+};
