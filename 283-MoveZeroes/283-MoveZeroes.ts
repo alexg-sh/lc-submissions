@@ -1,7 +1,4 @@
-// Last updated: 9/3/2025, 11:18:54 PM
-/**
- Do not return anything, modify nums in-place instead.
- */
+// Last updated: 9/6/2025, 10:15:57 PM
 function moveZeroes(nums: number[]): void {
     let insertPos = 0;
     for (let num of nums) {
