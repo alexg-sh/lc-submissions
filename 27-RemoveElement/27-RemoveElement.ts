@@ -1,4 +1,4 @@
-// Last updated: 8/18/2025, 10:41:00 PM
+// Last updated: 9/7/2025, 7:50:28 PM
 function removeElement(nums: number[], val: number): number {
     let k: number = 0;
     for(let i = 0; i < nums.length; i++) {
