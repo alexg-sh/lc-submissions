@@ -1,8 +1,8 @@
-// Last updated: 8/10/2025, 11:24:22 AM
+// Last updated: 9/8/2025, 5:28:42 PM
 function singleNumber(nums: number[]): number {
-  let ans = 0;
-  for (const num of nums) {
-    ans ^= num;
-  }
-  return ans;
+    let res = 0;
+    for (let n of nums) {
+        res ^= n; // XOR each number
+    }
+    return res;
 }
