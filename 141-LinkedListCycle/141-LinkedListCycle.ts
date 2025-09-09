@@ -1,4 +1,4 @@
-// Last updated: 9/9/2025, 10:56:21 PM
+// Last updated: 9/9/2025, 11:01:49 PM
 /**
  * Definition for singly-linked list.
  * class ListNode {
@@ -12,11 +12,13 @@
  */
 
 function hasCycle(head: ListNode | null): boolean {
-    let set = new Set()
-    while (head != null) {
-        if (set.has(head)) return true
-        set.add(head)
-        head = head.next
+    let fast = head;
+    let slow = head;
+
+    while (fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (fast == slow) return true
     }
-    return false
+    return false;
 };
