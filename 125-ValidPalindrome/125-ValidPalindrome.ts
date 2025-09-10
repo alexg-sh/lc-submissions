@@ -1,6 +1,5 @@
-// Last updated: 8/28/2025, 12:21:03 PM
+// Last updated: 9/10/2025, 5:43:07 PM
 function isPalindrome(s: string): boolean {
-    const cleanStr = s.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
-    const revstr = cleanStr.split('').reverse().join('');
-    return cleanStr === revstr;
-}
+    const newStr = s.toLowerCase().replace(/[^a-z0-9]/g, '');
+    return newStr === newStr.split('').reverse().join('');
+};
