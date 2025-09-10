@@ -1,4 +1,4 @@
-// Last updated: 8/8/2025, 9:19:06 PM
+// Last updated: 9/10/2025, 11:31:06 AM
 /**
  * Definition for singly-linked list.
  * class ListNode {
@@ -11,10 +11,23 @@
  * }
  */
 
-function addTwoNumbers(l1: ListNode | null, l2: ListNode | null, carry: number = 0): ListNode | null {
-    if(!l1 && !l2 && !carry) return null;
+function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
+    let dummy = new ListNode();
+    let temp = dummy;
+    let carry = 0;
 
-    var total : number = (l1 ? l1.val : 0) + (l2 ? l2.val : 0) + (carry || 0);
-    carry = parseInt(total / 10 + '');
-    return new ListNode(total % 10, addTwoNumbers(l1?.next, l2?.next, carry));
+    while (l1 !== null || l2 !== null || carry !== 0) {
+        let val1 = l1 !== null ? l1.val : 0;
+        let val2 = l2 !== null ? l2.val : 0;
+
+        let sum = val1 + val2 + carry;
+        carry = Math.floor(sum / 10);
+        temp.next = new ListNode(sum % 10);
+        temp = temp.next;
+
+        if (l1 !== null) l1 = l1.next;
+        if (l2 !== null) l2 = l2.next;
+    }
+
+    return dummy.next;
 };
