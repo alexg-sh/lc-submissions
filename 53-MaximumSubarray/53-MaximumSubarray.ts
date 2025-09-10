@@ -1,15 +1,9 @@
-// Last updated: 9/2/2025, 10:28:33 PM
+// Last updated: 9/10/2025, 5:32:27 PM
 function maxSubArray(nums: number[]): number {
-    let maxSum = nums[0];
-    let sum = 0;
-    for (let i = 0; i < nums.length; i++) {
-        sum += nums[i];
-        maxSum = Math.max(sum, maxSum);
-        if (sum < 0) {
-            sum = 0;
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i - 1] >= 0) {
+            nums[i] += nums[i - 1]
         }
-
     }
-
-    return maxSum;
+    return nums.sort((a, b) => b - a)[0]
 };
