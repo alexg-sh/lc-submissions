@@ -1,29 +1,14 @@
-// Last updated: 9/9/2025, 7:35:46 PM
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
-
+// Last updated: 9/10/2025, 11:17:37 AM
 function reverseList(head: ListNode | null): ListNode | null {
-    let currentNode = head;
-    let previousNode = null;
+    let curr = head;      // Pointer to scan through the list
+    let prev = null;      // This will eventually become the new head
 
-    while (currentNode) {
-        const nextNode = currentNode.next;
-
-        currentNode.next = previousNode;
-        previousNode = currentNode;
-
-        if (!nextNode) return currentNode;
-
-        currentNode = nextNode;
+    while (curr) {
+        let next = curr.next;   // Save the next node
+        curr.next = prev;       // Reverse the link
+        prev = curr;            // Move prev one step forward
+        curr = next;            // Move curr one step forward
     }
-    return currentNode;
-};
+
+    return prev; // At the end, prev is the new head
+}
