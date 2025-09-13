@@ -1,11 +1,9 @@
-// Last updated: 8/31/2025, 11:29:28 PM
+// Last updated: 9/13/2025, 10:41:00 PM
 function sortedSquares(nums: number[]): number[] {
-    let arr = [];
+    let list: number[] = [];
 
     for (let i = 0; i < nums.length; i++) {
-        let squared = [nums[i] * nums[i]]
-        arr.push(...squared)
+        list.push(nums[i] * nums[i])
     }
-   arr = arr.sort((a, b) => a - b);
-   return arr
+    return list.sort((a, b) => a - b)
 };
