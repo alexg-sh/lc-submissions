@@ -1,4 +1,4 @@
-// Last updated: 9/15/2025, 8:30:10 PM
+// Last updated: 9/16/2025, 9:42:06 PM
 function twoSum(nums: number[], target: number): number[] {
     const seen = new Map<number, number>();
     for (let i = 0; i < nums.length; i++) {
