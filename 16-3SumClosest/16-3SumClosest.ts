@@ -1,4 +1,4 @@
-// Last updated: 8/30/2025, 11:22:21 PM
+// Last updated: 10/5/2025, 7:47:50 PM
 function threeSumClosest(nums: number[], target: number): number {
     // Step 1: Sort the array for the two-pointer approach
     nums.sort((a, b) => a - b);
