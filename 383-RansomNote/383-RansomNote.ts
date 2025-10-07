@@ -1,15 +1,14 @@
-// Last updated: 10/7/2025, 11:15:42 PM
+// Last updated: 10/7/2025, 11:42:47 PM
 function canConstruct(ransomNote: string, magazine: string): boolean {
-    const charMap = new Map<string, number>();
-
-    for (const char of magazine) {
-        charMap.set(char, (charMap.get(char) || 0) + 1);
+    let ranArr = ransomNote.split("")
+    let magArr = magazine.split("")
+    for(let i =0; i< ranArr.length; i++){
+        let ind = magArr.indexOf(ranArr[i]) 
+        if(ind != -1){
+            magArr[ind] = ""
+        }else{
+            return false
+        }
     }
-
-    for (const char of ransomNote) {
-        if (!charMap.has(char) || charMap.get(char)! <= 0) return false;
-        charMap.set(char, charMap.get(char)! - 1);
-    }
-
-    return true;
+    return true
 };
