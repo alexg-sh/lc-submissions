@@ -1,4 +1,4 @@
-// Last updated: 9/12/2025, 9:21:06 PM
+// Last updated: 10/14/2025, 10:07:12 PM
 function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
     // p and q are both null
     if (p == null && q == null) return true;
