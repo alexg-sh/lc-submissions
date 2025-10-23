@@ -1,4 +1,4 @@
-// Last updated: 9/8/2025, 6:39:13 PM
+// Last updated: 10/23/2025, 8:40:10 PM
 function climbStairs(n: number): number {
     if (n <= 1) {
         return 1; // Base cases
