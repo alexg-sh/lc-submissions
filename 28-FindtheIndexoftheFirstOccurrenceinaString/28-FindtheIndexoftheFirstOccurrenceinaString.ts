@@ -1,4 +1,4 @@
-// Last updated: 9/10/2025, 5:49:25 PM
+// Last updated: 10/28/2025, 3:20:43 PM
 function strStr(haystack: string, needle: string): number {
     // Edge case: if needle is empty, return 0 as per the problem statement
     if (needle.length === 0) return 0;
