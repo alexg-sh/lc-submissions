@@ -1,4 +1,4 @@
-// Last updated: 8/5/2025, 11:19:35 PM
+// Last updated: 11/3/2025, 1:43:19 AM
 function lengthOfLongestSubstring(s: string): number {
     let maxLen = 0;
     let left = 0;
